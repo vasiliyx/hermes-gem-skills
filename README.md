@@ -21,10 +21,25 @@ This repository is intentionally selective: it is **not** a dump of every local 
 ## Repository layout
 
 ```text
-skills/<category>/<skill-name>/SKILL.md   # published skills
+skills/<skill-name>/SKILL.md              # tap-compatible published skills
 proposals/                                # candidate skill briefs before Vasiliy approves publication
 docs/                                     # usage and publishing guidance
 scripts/validate_skills.py                # lightweight local validator
+```
+
+
+## Install as a Hermes tap
+
+```bash
+hermes skills tap add vasiliyx/hermes-gem-skills
+hermes skills install vasiliyx/hermes-gem-skills/agency-agents-catalog
+```
+
+Individual Agency roles are published as `agency-*` skills, for example:
+
+```bash
+hermes skills install vasiliyx/hermes-gem-skills/agency-frontend-developer
+hermes skills install vasiliyx/hermes-gem-skills/agency-reality-checker
 ```
 
 ## Install a skill from this repo
@@ -32,14 +47,14 @@ scripts/validate_skills.py                # lightweight local validator
 Copy a skill folder into your Hermes profile:
 
 ```bash
-mkdir -p ~/.hermes/skills/<category>
-cp -R skills/<category>/<skill-name> ~/.hermes/skills/<category>/
+mkdir -p ~/.hermes/skills/gem
+cp -R skills/<skill-name> ~/.hermes/skills/gem/
 ```
 
 Or install a direct raw `SKILL.md` URL if your Hermes build supports it:
 
 ```bash
-hermes skills install https://raw.githubusercontent.com/vasiliyx/hermes-gem-skills/main/skills/<category>/<skill-name>/SKILL.md
+hermes skills install https://raw.githubusercontent.com/vasiliyx/hermes-gem-skills/main/skills/<skill-name>/SKILL.md
 ```
 
 Then start a new Hermes session or reload skills.
@@ -54,4 +69,4 @@ Then start a new Hermes session or reload skills.
 
 ## Current status
 
-No skills have been published yet in this initial scaffold. This prevents accidentally sharing local/private skills before explicit selection.
+Published collection includes The Agency specialist roles converted into Hermes skills, selected by Vasiliy for this gem tap.
